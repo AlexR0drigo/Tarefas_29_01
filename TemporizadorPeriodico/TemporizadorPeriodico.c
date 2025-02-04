@@ -2,32 +2,32 @@
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 
-#define LED_RED 11
-#define LED_YELLOW 12
-#define LED_GREEN 13
+#define LEDR_PIN 11 // Vermelho
+#define LEDY_PIN 12 // Amarelo
+#define LEDG_PIN 13 // Verde
 
-// Estado do semáforo
-static volatile int state = 1;
+// Estado do semáforo, representa qual a cor ele está atualmente
+static volatile int state = 1; // inicializada como 1
 
 // Callback do temporizador
 bool repeating_timer_callback(struct repeating_timer *t) {
     // Desliga todos os LEDs antes de mudar o estado
-    gpio_put(LED_RED, 0);
-    gpio_put(LED_YELLOW, 0);
-    gpio_put(LED_GREEN, 0);
+    gpio_put(LEDR_PIN, 0);
+    gpio_put(LEDY_PIN, 0);
+    gpio_put(LEDG_PIN, 0);
 
     // Alterna o estado do semáforo
     switch (state) {
         case 1:
-            gpio_put(LED_YELLOW, 1);
+            gpio_put(LEDY_PIN, 1);
             state = 2;
             break;
         case 2:
-            gpio_put(LED_GREEN, 1);
+            gpio_put(LEDG_PIN, 1);
             state = 3;
             break;
         case 3:
-            gpio_put(LED_RED, 1);
+            gpio_put(LEDR_PIN, 1);
             state = 1;
             break;
     }
@@ -38,23 +38,23 @@ int main() {
     stdio_init_all();
 
     // Inicializa os pinos dos LEDs
-    gpio_init(LED_RED);
-    gpio_set_dir(LED_RED, GPIO_OUT);
-    gpio_init(LED_YELLOW);
-    gpio_set_dir(LED_YELLOW, GPIO_OUT);
-    gpio_init(LED_GREEN);
-    gpio_set_dir(LED_GREEN, GPIO_OUT);
+    gpio_init(LEDR_PIN);
+    gpio_set_dir(LEDR_PIN, GPIO_OUT);
+    gpio_init(LEDY_PIN);
+    gpio_set_dir(LEDY_PIN, GPIO_OUT);
+    gpio_init(LEDG_PIN);
+    gpio_set_dir(LEDG_PIN, GPIO_OUT);
 
     // Liga o LED vermelho inicialmente
-    gpio_put(LED_RED, 1);
+    gpio_put(LEDR_PIN, 1);
 
     // Configura o temporizador para alternar o semáforo a cada 3 segundos
     struct repeating_timer timer;
     add_repeating_timer_ms(3000, repeating_timer_callback, NULL, &timer);
 
-    // Loop principal
+    
     while (true) {
-
+        // Mensagem que é exibida a cada 1 segundo, dizendo também qual cor está sendo exibida
         switch (state) {
             case 1:
                 printf("Semáforo operando na cor vermelha...\n");
