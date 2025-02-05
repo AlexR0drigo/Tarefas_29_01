@@ -34,7 +34,7 @@ Instalar o Pico SDK e extensão Raspberry Pi Pico: Siga as instruções do Pico 
 
 Instalar a Extensão Wokwi: Permite simular o Raspberry Pi Pico W no ambiente de desenvolvimento. Instale a extensão Wokwi Simulator no catálogo extensões do VS Code e depois habilite a mesma com uma licença de 30 dias gratuita.
 
-Abra o projeto referente a atividade 1, temporizadorPeriodico em seu VS Code.
+Abra a pasta do projeto referente a atividade 1, temporizadorPeriodico em seu VS Code.
 
 Compile o código a partir da Pico SDK.
 
@@ -80,7 +80,7 @@ Instalar o Pico SDK e extensão Raspberry Pi Pico: Siga as instruções do Pico 
 
 Instalar a Extensão Wokwi: Permite simular o Raspberry Pi Pico W no ambiente de desenvolvimento. Instale a extensão Wokwi Simulator no catálogo extensões do VS Code e depois habilite a mesma com uma licença de 30 dias gratuita.
 
-Abra o projeto referente a atividade 1, TemporizadorOneShot em seu VS Code.
+Abra a pasta do projeto referente a atividade 2, TemporizadorOneShot em seu VS Code.
 
 Compile o código a partir da Pico SDK.
 
