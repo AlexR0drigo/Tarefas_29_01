@@ -89,6 +89,6 @@ Execute no Raspberry Pi Pico W ou no simulador Wokwi integrado a partir do arqui
 A partir do inicio da execução, aperte o botão para ver iluminação dos LEDs e em seguida eles sendo apagados em sequencia pelo temporizador de 3 segundos.
 
 
-# Projeto desenvolvido por Alex Rodrigo
+# Projeto desenvolvido por Alex Rodrigo Porto Barbosa
 
 
